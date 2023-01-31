@@ -1,13 +1,17 @@
 {
   "name": "max_size_frontend",
   "version": "0.1.0",
+  "type": "module",
   "description": "Internet Computer starter application",
-  "keywords": ["Internet Computer", "Motoko", "JavaScript", "Canister"],
+  "keywords": [
+    "Internet Computer",
+    "Motoko",
+    "JavaScript",
+    "Canister"
+  ],
   "scripts": {
-    "build": "webpack",
+    "start": "ts-node src/index.ts",
     "prebuild": "npm run generate",
-    "start": "webpack serve --mode development --env development",
-    "prestart": "npm run generate",
     "generate": "dfx generate max_size_backend"
   },
   "devDependencies": {
@@ -35,5 +39,8 @@
     "last 2 firefox version",
     "last 2 safari version",
     "last 2 edge version"
-  ]
+  ],
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  }
 }
