@@ -1,0 +1,28 @@
+{
+  "canisters": {
+    "max_size_backend": {
+      "main": "src/max_size_backend/main.mo",
+      "type": "motoko"
+    },
+    "max_size_frontend": {
+      "dependencies": [
+        "max_size_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/max_size_frontend/src/index.html"
+      },
+      "source": [
+        "src/max_size_frontend/assets",
+        "dist/max_size_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
