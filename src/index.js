@@ -5,13 +5,18 @@ import fetch from "isomorphic-fetch";
 import { idlFactory } from "./max_size_backend.did.js";
 export { idlFactory } from "./max_size_backend.did.js";
 
-// CANISTER_ID is replaced by webpack based on node environment
-export const canisterId = "su63m-yyaaa-aaaaa-aaala-cai";
+// temporary canister id from playground
+export const canisterId = "zydb5-siaaa-aaaab-qacba-cai";
 
 export const createActor = (canisterId, options = {}) => {
   const agent =
     options.agent ||
-    new HttpAgent({ ...options.agentOptions, host: "http://localhost:4943" });
+    new HttpAgent({
+      ...options.agentOptions,
+      host: "https://ic0.app",
+      fetch,
+      retryTimes: 0,
+    });
 
   if (options.agent && options.agentOptions) {
     console.warn(
@@ -60,5 +65,11 @@ const test_max_size_loop = async () => {
   }
 };
 // test_max_size_loop();
-test_max_size(3669834); //?
-test_max_size(3669835); //?
+
+// mainnet limit is 2096970
+test_max_size(2096970); //?
+test_max_size(2096971); //?
+
+// local limit is 3669834
+// test_max_size(3669834); //?
+// test_max_size(3669835); //?
